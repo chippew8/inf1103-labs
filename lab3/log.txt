@@ -1,0 +1,23 @@
+commit 7e64a2f2da7afb4336efd970a4b10261930c5dc2
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 18:39:14 2026 +0800
+
+    Docker Set up
+
+commit 3d45721e74a67d78e27ccfed0cbbaa0af3caca10
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 18:13:43 2026 +0800
+
+    Lab3 write code section
+
+commit b08ea56ab74893deb6a8f0b619bffe7558a0d9f7
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Sep 11 15:51:49 2026 +0800
+
+    Added Dockerfile
+
+commit 424931828395fd7d12c42b726734cca1f63f494d
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Sep 11 15:34:30 2026 +0800
+
+    Lab 2
