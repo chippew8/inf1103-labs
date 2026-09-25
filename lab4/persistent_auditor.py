@@ -18,7 +18,10 @@ def get_valid_input(order_list):
     if stock.lower() == "quit":
         return stock.lower()
     elif stock.isdigit():
-        order_list.append(f"{product_name}, {stock}")
+        order_list.append(f"{1000+ len(order_list)}, {product_name}, {stock}")
+        print("New Order Added")
+        print(f"{1001+ len(order_list)}, {product_name}, {stock}\n")
+        return order_list
     else:
         raise Exception("Stock amount must be a positive number")
 
@@ -34,9 +37,12 @@ def generate_report(total_units, failed_attempts):
 def save_inventory():
     return
 
+history = []
 # constant loop
 while True:
     load_inventory()
+    get_valid_input(history)
+    print(history)
 
 
 
