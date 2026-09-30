@@ -18,11 +18,14 @@ def load_inventory():
                 print(file.read())
     return
 def get_valid_input(history):
-    with open("orders.txt", "r") as file:
+    with open("./orders.txt", "r") as file:
         id = 1001
         order_list = file.readlines()
         if order_list != []:
             last = order_list[-1].split(", ")[0]
+            id = int(last)+1
+        elif history != []:
+            last = history[-1].split(", ")[0]
             id = int(last)+1
         
     product_name = input("Enter Product Name: ")
