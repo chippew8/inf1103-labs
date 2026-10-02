@@ -1,1 +1,1 @@
-{"P0001": {"Name": "First", "Price": 200, "Stock": 40}, "P0003": {"Name": "Third", "Price": "30", "Stock": "10"}}
+{"P0001": {"Name": "First", "Price": 200, "Stock": 40}, "P0003": {"Name": "Third", "Price": "30", "Stock": "10"}, "Second": {"Name": "P0002", "Price": "60", "Stock": "55"}}

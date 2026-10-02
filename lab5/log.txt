@@ -1,0 +1,59 @@
+commit d3bd25d1ef53a7318cc4f35a9297db6fdae6fcdb
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Oct 2 18:20:06 2026 +0800
+
+    Added Dictionary, load_inventory and final save.
+
+commit c831028a9f6b8af774a9f80263b9ef13d6518488
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Wed Sep 30 12:46:25 2026 +0800
+
+    lab 4 last commit
+
+commit 59e621f970fbfc524bd73101be04b5aaf338c072
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Tue Sep 29 14:28:39 2026 +0800
+
+    Finalized
+
+commit bf6851f0786c8f4fc0d86846e3793a1efaf923ab
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Sep 25 14:58:26 2026 +0800
+
+    add history list
+
+commit 9a7951b5462b7115dad51321fb5bf7903b88ff1b
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Sep 25 14:51:25 2026 +0800
+
+    add load_inventory()
+
+commit 38c8cdb7394035912e2b5f787271dde59915d2dc
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Mon Sep 21 14:08:01 2026 +0800
+
+    Final
+
+commit 7e64a2f2da7afb4336efd970a4b10261930c5dc2
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 18:39:14 2026 +0800
+
+    Docker Set up
+
+commit 3d45721e74a67d78e27ccfed0cbbaa0af3caca10
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Sat Sep 19 18:13:43 2026 +0800
+
+    Lab3 write code section
+
+commit b08ea56ab74893deb6a8f0b619bffe7558a0d9f7
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Sep 11 15:51:49 2026 +0800
+
+    Added Dockerfile
+
+commit 424931828395fd7d12c42b726734cca1f63f494d
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Sep 11 15:34:30 2026 +0800
+
+    Lab 2

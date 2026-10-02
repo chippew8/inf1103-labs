@@ -5,7 +5,7 @@ def display_all(dictionary):
     print("Current Inventory")
     print("-------------------------")
     for entry in dictionary.keys():
-        print(f"ID: {entry} | Name: {dictionary[entry]["Name"]} | Price: ${dictionary[entry]["Price"]} | Stock: {dictionary[entry]["Stock"]} ")
+        print(f"ID: {entry} | Name: {dictionary[entry]['Name']} | Price: ${dictionary[entry]['Price']} | Stock: {dictionary[entry]['Stock']} ")
     print("-------------------------")
     return dictionary
 
@@ -28,8 +28,8 @@ def update_stock(dictionary):
     id = input("Enter Product ID")
     if dictionary[id] is not None:
         print("Product Found:")
-        print(f"Name: {dictionary[id]["Name"]}")
-        print(f"Stock: {dictionary[id]["Stock"]}\n")
+        print(f"Name: {dictionary[id]['Name']}")
+        print(f"Stock: {dictionary[id]['Stock']}\n")
 
         new_stock = input("New Stock Quantity:")
         dictionary[id]["Stock"] = new_stock
@@ -43,9 +43,9 @@ def search_product(dictionary):
         print("Product Found:")
         print("--------------------------------")
         print(f"ID: {id}")
-        print(f"Name: {dictionary[id]["Name"]}")
-        print(f"Price: ${dictionary[id]["Price"]}")
-        print(f"Stock: {dictionary[id]["Stock"]}\n")
+        print(f"Name: {dictionary[id]['Name']}")
+        print(f"Price: ${dictionary[id]['Price']}")
+        print(f"Stock: {dictionary[id]['Stock']}\n")
         print("--------------------------------")
     return dictionary
     
@@ -65,9 +65,10 @@ def load_inventory():
             print("Inventory loaded successfully.")
             return json_data 
     else:
-        with open('inventory.json', 'w+') as json_file:
-            json_data = json.load(json_file)
-            return json_data
+        new_file = open('inventory.json', 'w+')
+        new_file.close()
+        return {}
+        
 
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
