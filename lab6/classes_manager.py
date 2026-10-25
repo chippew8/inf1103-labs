@@ -12,7 +12,6 @@ class Product:
         self.__stock = quantity
 
     def display_information(self):
-        print("Product Found:")
         print("--------------------------------")
         print(f"ID: {self.__product_id}")
         print(f"Name: {self.__name}")
@@ -20,61 +19,68 @@ class Product:
         print(f"Stock: {self.__stock}\n")
         print("--------------------------------")
 
-def display_all(dictionary):
-    print("Current Inventory")
-    print("-------------------------")
-    for entry in dictionary.keys():
-        print(f"ID: {entry} | Name: {dictionary[entry]['Name']} | Price: ${dictionary[entry]['Price']} | Stock: {dictionary[entry]['Stock']} ")
-    print("-------------------------")
-    return dictionary
+class Inventory:
+    def __init__(self):
+        self.__product_list = []
 
-def add_product(dictionary):
+    def add_product(self, product):
+        self.__product_list.append(product)
+
+    def search_product(self, product):
+        for things in self.__product_list:
+            if things.__product_id == product:
+                return things
+        print("Item not found")
+        return
+
+    def display_all(self):
+        print("\n")
+        print("--------------------------------")
+        print("Current Inventory")
+        for product in self.__product_list:
+            product.display_information()
+        print("--------------------------------")
+
+
+
+def display_all(inventory):
+    inventory.display_all()
+
+def add_product(inventory):
     print("Add New Product")
     id = input("Product ID: ")
     name = input("Product Name: ")
     price = input("Price: ")
     quantity = input("Stock Quantity: ")
-    dictionary[id]= {
-        "Name" : name,
-        "Price" : price,
-        "Stock" : quantity
-    }
+    product = Product(id, name, price, quantity)
+    inventory.add_product(product)
     print("Product added successfully!")
-    return dictionary
+    return inventory
 
-def update_stock(dictionary):
+def update_stock(inventory):
     print("Update Stock")
-    id = input("Enter Product ID")
-    if dictionary[id] is not None:
+    id = input("Enter Product ID: ")
+    product = inventory.search_product(id)
+    if product is not None:
         print("Product Found:")
-        print(f"Name: {dictionary[id]['Name']}")
-        print(f"Stock: {dictionary[id]['Stock']}\n")
+        print(f"Name: {product.name}")
+        print(f"Stock: {product.stock}\n")
 
         new_stock = input("New Stock Quantity:")
-        dictionary[id]["Stock"] = new_stock
+        product.update_stock(new_stock)
         print("Stock updated successfully!")
     return dictionary
 
-def search_product(dictionary):
+def search_product(inventory):
     print("Search Product")
     id = input("Enter Product ID")
-    if dictionary[id] is not None:
-        print("Product Found:")
-        print("--------------------------------")
-        print(f"ID: {id}")
-        print(f"Name: {dictionary[id]['Name']}")
-        print(f"Price: ${dictionary[id]['Price']}")
-        print(f"Stock: {dictionary[id]['Stock']}\n")
-        print("--------------------------------")
-    return dictionary
-    
+    inventory.search_product(id)
      
 def save_inventory(dictionary):
     print("Saving inventory before exit...")
     with open('inventory.json', 'w+') as json_file:
         json.dump(dictionary, json_file)
     print("Inventory saved successfully.")
-
 
 def load_inventory():
     if Path('inventory.json').is_file():
@@ -92,7 +98,7 @@ def load_inventory():
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
-dictionary = load_inventory()
+inventory = Inventory()
 while True:
     print("\n-------MENU-------")
     print("1. Display All Products")
@@ -106,15 +112,15 @@ while True:
     menu_choice = input("Enter option: ")
     match int(menu_choice):
         case 1:
-            dictionary = display_all(dictionary)
+            dictionary = display_all(inventory)
         case 2:
-            dictionary = add_product(dictionary)
+            dictionary = add_product(inventory)
         case 3:
-            dictionary = update_stock(dictionary)
+            dictionary = update_stock(inventory)
         case 4:
-            dictionary = search_product(dictionary)
+            dictionary = search_product(inventory)
         case 5:
-            dictionary = save_inventory(dictionary)
+            dictionary = save_inventory(inventory)
             print("\nThank you for using Inventory Management System.")
             print("Program terminated")
             break
