@@ -19,6 +19,15 @@ class Product:
         print(f"Stock: {self.__stock}\n")
         print("--------------------------------")
 
+    def get_id(self):
+        return self.__product_id
+
+    def get_name(self):
+        return self.__name
+
+    def get_stock(self):
+        return self.__stock
+
 class Inventory:
     def __init__(self):
         self.__product_list = []
@@ -28,7 +37,7 @@ class Inventory:
 
     def search_product(self, product):
         for things in self.__product_list:
-            if things.__product_id == product:
+            if things.get_id() == product:
                 return things
         print("Item not found")
         return
@@ -63,8 +72,8 @@ def update_stock(inventory):
     product = inventory.search_product(id)
     if product is not None:
         print("Product Found:")
-        print(f"Name: {product.name}")
-        print(f"Stock: {product.stock}\n")
+        print(f"Name: {product.get_name()}")
+        print(f"Stock: {product.get_stock()}\n")
 
         new_stock = input("New Stock Quantity:")
         product.update_stock(new_stock)
