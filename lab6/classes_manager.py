@@ -17,7 +17,7 @@ class Product:
         print(f"Name: {self.__name}")
         print(f"Price: ${self.__price}")
         print(f"Stock: {self.__stock}\n")
-        print("--------------------------------")
+
 
     def get_id(self):
         return self.__product_id
@@ -46,7 +46,23 @@ class PhysicalProduct(Product):
         print(f"Price: ${self.get_price()}")
         print(f"Stock: {self.get_stock()}")
         print(f"Weight: {self.__weight}")
-        print("--------------------------------")
+
+
+class DigitalProduct(Product):
+    def __init__(self, product_id, name, price, stock, download_size):
+        super().__init__(product_id, name, price, stock)
+        self.__download_size = download_size
+
+    def get_download_size(self):
+        return self.__download_size
+
+    def display_information(self):
+            print("--------------------------------")
+            print(f"ID: {self.get_id()}")
+            print(f"Name: {self.get_name()}")
+            print(f"Price: ${self.get_price()}")
+            print(f"Stock: {self.get_stock()}")
+            print(f"Download Size: {self.__download_size}")
 
 class Inventory:
     def __init__(self):
