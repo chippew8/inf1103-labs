@@ -12,11 +12,11 @@ class Product:
         self.__stock = quantity
 
     def display_information(self):
-        print("--------------------------------")
+        print("\n--------------------------------")
         print(f"ID: {self.__product_id}")
         print(f"Name: {self.__name}")
         print(f"Price: ${self.__price}")
-        print(f"Stock: {self.__stock}\n")
+        print(f"Stock: {self.__stock}")
 
 
     def get_id(self):
@@ -40,12 +40,8 @@ class PhysicalProduct(Product):
         return self.__weight
 
     def display_information(self):
-        print("--------------------------------")
-        print(f"ID: {self.get_id()}")
-        print(f"Name: {self.get_name()}")
-        print(f"Price: ${self.get_price()}")
-        print(f"Stock: {self.get_stock()}")
-        print(f"Weight: {self.__weight}")
+        super().display_information()
+        print(f"Weight: {self.__weight}Kgs")
 
 
 class DigitalProduct(Product):
@@ -57,12 +53,8 @@ class DigitalProduct(Product):
         return self.__download_size
 
     def display_information(self):
-            print("--------------------------------")
-            print(f"ID: {self.get_id()}")
-            print(f"Name: {self.get_name()}")
-            print(f"Price: ${self.get_price()}")
-            print(f"Stock: {self.get_stock()}")
-            print(f"Download Size: {self.__download_size}")
+        super().display_information()
+        print(f"Download Size: {self.__download_size}MBs")
 
 class Inventory:
     def __init__(self):
@@ -169,6 +161,11 @@ def load_inventory(inventory):
 
 test_physical = PhysicalProduct("P0002", "Laptop", 120, 120, 2)
 test_physical.display_information()
+
+test_digital = DigitalProduct("P0003", "Movie", 10, 500, 100)
+test_digital.display_information()
+
+
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
