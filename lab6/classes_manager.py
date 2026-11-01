@@ -31,6 +31,23 @@ class Product:
     def get_stock(self):
         return self.__stock
 
+class PhysicalProduct(Product):
+    def __init__(self, product_id, name, price, stock, weight):
+        super().__init__(product_id, name, price, stock)
+        self.__weight = weight
+
+    def get_weight(self):
+        return self.__weight
+
+    def display_information(self):
+        print("--------------------------------")
+        print(f"ID: {self.get_id()}")
+        print(f"Name: {self.get_name()}")
+        print(f"Price: ${self.get_price()}")
+        print(f"Stock: {self.get_stock()}")
+        print(f"Weight: {self.__weight}")
+        print("--------------------------------")
+
 class Inventory:
     def __init__(self):
         self.__product_list = []
@@ -55,8 +72,6 @@ class Inventory:
 
     def get_product_list(self):
         return self.__product_list
-
-
 
 def display_all(inventory):
     inventory.display_all()
@@ -87,7 +102,6 @@ def update_stock(inventory):
     else:
         print("No existing product found")
     
-
 def search_product(inventory):
     print("Search Product")
     id = input("Enter Product ID: ")
@@ -137,6 +151,8 @@ def load_inventory(inventory):
         return inventory
         
 
+test_physical = PhysicalProduct("P0002", "Laptop", 120, 120, 2)
+test_physical.display_information()
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
