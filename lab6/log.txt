@@ -1,3 +1,51 @@
+commit ef8a77cb9d8a003c1ba6550cd81bd053cd7ba5ff
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Tue Nov 3 15:07:11 2026 +0800
+
+    Final details
+
+commit ffa7de17be0765ad12604404e70cde977dd23e91
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Tue Nov 3 15:00:09 2026 +0800
+
+    Implemented interface
+
+commit b1df6811cebbbd554d2876507699e399bf4b57e3
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Tue Nov 3 14:59:45 2026 +0800
+
+    Tidy up classes into individual files
+
+commit 4f9a497d4737eb179704ef4551a387813f51d374
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Sun Nov 1 14:10:04 2026 +0800
+
+    Converted Product class into abstract class
+
+commit 04daab142572016763313093de573d3dfd1e8f8f
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Sun Nov 1 13:26:39 2026 +0800
+
+    Override display information function in child classes
+
+commit 27829c0a2e07943b8ca6fd0141a29edca7a49495
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Sun Nov 1 13:20:32 2026 +0800
+
+    Added DigitalProduct class
+
+commit 6ae043fae52d06801521af703903ed8f0df5b446
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Sun Nov 1 13:16:27 2026 +0800
+
+    Added PhysicalProduct Class
+
+commit c17b01fa3c10e818f55b7e5d76b18be8fe7826cf
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Thu Oct 29 17:34:58 2026 +0800
+
+    Lab6 completion
+
 commit 650f8b5c1e7ae9527e5e8820e36f5fef03e7d530
 Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
 Date:   Thu Oct 29 17:04:56 2026 +0800
