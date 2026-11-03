@@ -64,6 +64,7 @@ def save_inventory(inventory):
     for entry in inventory.get_product_list():
         if isinstance(entry, PhysicalProduct):
             dictionary[entry.get_id()] = {
+                "Type": "Physical",
                 "Name": entry.get_name(),
                 "Price": entry.get_price(),
                 "Stock": entry.get_stock(),
@@ -71,13 +72,14 @@ def save_inventory(inventory):
                 "Download Size": None
             }
         elif isinstance(entry, DigitalProduct):
-                    dictionary[entry.get_id()] = {
-                        "Name": entry.get_name(),
-                        "Price": entry.get_price(),
-                        "Stock": entry.get_stock(),
-                        "Weight": None,
-                        "Download Size": entry.get_download_size()
-                    }
+            dictionary[entry.get_id()] = {
+                "Type": "Digital",
+                "Name": entry.get_name(),
+                "Price": entry.get_price(),
+                "Stock": entry.get_stock(),
+                "Weight": None,
+                "Download Size": entry.get_download_size()
+            }
     print("Saving inventory before exit...")
     with open('inventory.json', 'w+') as json_file:
         json.dump(dictionary, json_file)
@@ -93,9 +95,9 @@ def load_inventory(inventory):
                 for id in json_data:
                     if id is not None:
                         values = json_data.get(id)
-                        if values["Weight"] is not None:
+                        if values["Type"] == "Physical":
                             product = PhysicalProduct(id, values["Name"], values["Price"], values["Stock"], values["Weight"])
-                        if values["Download Size"] is not None:
+                        if values["Type"] == "Digital":
                             product = DigitalProduct(id, values["Name"], values["Price"], values["Stock"], values["Download Size"])
                         inventory.add_product(product)
                 return inventory 
