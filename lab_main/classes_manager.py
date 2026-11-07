@@ -109,15 +109,6 @@ def load_inventory(inventory):
         new_file.close()
         return inventory
 
-new_supplier = Supplier("id", "name", "email")
-new_product = PhysicalProduct("P0001", "Laptop", 2500, 10, new_supplier, 2)
-new_inv = Inventory()
-new_inv.add_product(new_product)
-new_inv.delete_product("P0001")
-print(new_product.get_name())
-second_inv = Inventory()
-second_inv.add_product(new_product)
-
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
