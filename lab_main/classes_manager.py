@@ -3,6 +3,8 @@ from pathlib import Path
 from Inventory import Inventory
 from Product import DigitalProduct, PhysicalProduct
 from Supplier import Supplier
+from Order import Order
+from OrderLine import OrderLine
 
 def display_all(inventory):
     inventory.display_all()
@@ -108,6 +110,20 @@ def load_inventory(inventory):
         new_file = open('inventory.json', 'w+')
         new_file.close()
         return inventory
+
+supp = Supplier("id", "name", "email")
+order_1 = Order("OR_1")
+product_1 = PhysicalProduct("P0001", "Laptop", 20, 20, supp, 2)
+product_2 = PhysicalProduct("P0002", "Mouse", 20, 20, supp, 2)
+order_1.add_order_line(product_1, 10)
+order_1.add_order_line(product_2, 10)
+print(order_1.get_order_lines()[0])
+print(order_1.get_order_lines()[1])
+print(f"Total cost of order: {order_1.calculate_total()}")
+order_2 = Order("OR_2")
+order_2.add_order_line(product_1, 10)
+order_1.remove_order_line("P0001")
+order_1.calculate_total()
 
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")

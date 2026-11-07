@@ -1,3 +1,5 @@
 Prediction at 2.2: I think that the supplier information will not be able to be displayed as the object is missing and so the reference would point to nothing
 
 Prediction at 3.2: I think the product would work individually, but it would not be inside inventory A
+
+Prediction at 4.3: I think there will be 2 OrderLine objects but 1 product object
