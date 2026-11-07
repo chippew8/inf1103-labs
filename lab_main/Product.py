@@ -1,12 +1,14 @@
 from abc import ABC, abstractmethod
 import CanBeShipped
+from Supplier import Supplier
 
 class Product(ABC):
-    def __init__(self, product_id, name, price, stock):
+    def __init__(self, product_id: str, name: str, price: float, stock: int, supplier: Supplier):
         self.__product_id = product_id
         self.__name = name
         self.__price = price
         self.__stock = stock
+        self.__supplier = supplier
 
     def update_stock(self, quantity):
         self.__stock = quantity
@@ -31,13 +33,16 @@ class Product(ABC):
     def get_stock(self):
         return self.__stock
 
+    def get_supplier(self):
+        return self.__supplier
+    
     @abstractmethod
     def get_fulfilment_info(self):
         pass
 
 class PhysicalProduct(Product, CanBeShipped.CanBeShipped):
-    def __init__(self, product_id, name, price, stock, weight):
-        super().__init__(product_id, name, price, stock)
+    def __init__(self, product_id: str, name: str, price: float, stock: int, supplier: Supplier, weight: float):
+        super().__init__(product_id, name, price, stock, supplier)
         self.__weight = weight
         
 
@@ -55,8 +60,8 @@ class PhysicalProduct(Product, CanBeShipped.CanBeShipped):
         return f"It cost ${int(self.get_weight())*2} to ship {self.get_name()}"
 
 class DigitalProduct(Product):
-    def __init__(self, product_id, name, price, stock, download_size):
-        super().__init__(product_id, name, price, stock)
+    def __init__(self, product_id: str, name: str, price: float, stock: int, supplier: Supplier, download_size: int):
+        super().__init__(product_id, name, price, stock, supplier)
         self.__download_size = download_size
 
     def get_download_size(self):

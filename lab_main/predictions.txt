@@ -1,0 +1,1 @@
+Prediction at 2.2: I think that the supplier information will not be able to be displayed as the object is missing and so the reference would point to nothing

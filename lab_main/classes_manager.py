@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 from Inventory import Inventory
 from Product import DigitalProduct, PhysicalProduct
+import Supplier
 
 def display_all(inventory):
     inventory.display_all()
@@ -108,6 +109,15 @@ def load_inventory(inventory):
         new_file.close()
         return inventory
         
+supplier = Supplier.Supplier("S0001", "Supplier 1", "supplier@email.com")
+test_physical = PhysicalProduct("P0001", "Laptop", 200, 10, supplier, 2)
+test_digital = DigitalProduct("P0002", "Game", 20, 199, supplier, 200)
+print(test_digital.get_supplier().get_name())
+print(test_physical.get_supplier().get_name())
+del supplier
+print(supplier)
+print(test_digital.get_supplier().get_name())
+print(test_physical.get_supplier().get_name())
 
 print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
