@@ -3,3 +3,7 @@ Prediction at 2.2: I think that the supplier information will not be able to be 
 Prediction at 3.2: I think the product would work individually, but it would not be inside inventory A
 
 Prediction at 4.3: I think there will be 2 OrderLine objects but 1 product object
+
+Question at 6.3: This does violate LSP it "breaks" the flow of how the program would run by raising an exception. I would change the subclass by telling the user the issue without stopping the program using a print statement over using an exception.
+
+Prediction at 7.2: PhysicalProduct would print " {name of product} is shipped physically" and DigitalProduct would print " {name of product} is digital"

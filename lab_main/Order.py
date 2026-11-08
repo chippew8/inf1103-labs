@@ -14,16 +14,15 @@ class Order():
         for order_line in self.__order_lines:
             print(f"The cost of {order_line.get_product().get_name()} is {order_line.get_product().get_price()}")
             total += order_line.calculate_subtotal()
-
         return total
 
-    def get_order_id(self):
+    def get_order_id(self) -> str:
         return self.__order_id
 
-    def get_order_lines(self):
+    def get_order_lines(self) -> list:
         return self.__order_lines
 
-    def remove_order_line(self, product_id):
+    def remove_order_line(self, product_id:str) -> None:
         for order_line in self.__order_lines:
             if order_line.get_product().get_id() == product_id:
                 print(f"{order_line.get_product().get_name()} has been removed")
