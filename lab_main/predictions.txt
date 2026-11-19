@@ -1,9 +1,17 @@
-Prediction at 2.2: I think that the supplier information will not be able to be displayed as the object is missing and so the reference would point to nothing
+Diagnose at 1.5: there's if/elif blocks to decide between digital and physical product adding. I create PhysicalProduct and DigitalProduct at the add product function and retrieval from json file. Typing string in integer input.
 
-Prediction at 3.2: I think the product would work individually, but it would not be inside inventory A
+Prediction at 2.1: the input for the discount type must change, and it should change to the percentage of discount. The calculate total should also change to apply the discount without if else but taking in the discount percentage.
 
-Prediction at 4.3: I think there will be 2 OrderLine objects but 1 product object
+Prediction at 2.3: If the total is 250, calculate_total with BulkDiscount(200,20) would return 200. Calling set discount would change the discount type without applying the discount, to which when you calculate total again, it would return 90% of 250 since the initial discount wasn't saved.
 
-Question at 6.3: This does violate LSP it "breaks" the flow of how the program would run by raising an exception. I would change the subclass by telling the user the issue without stopping the program using a print statement over using an exception.
+Prediction at 2.4: I think it is aggregation. Without a DiscountStrategy given, order would default to NoDiscount but it is still integral to the attributes of an order.
 
-Prediction at 7.2: PhysicalProduct would print " {name of product} is shipped physically" and DigitalProduct would print " {name of product} is digital"
+Prediction at 3.2: A value error will be raised as "service" is not a valid product type. The else line in the create function raises it and if the program does nothing to catch it, the program will terminate
+
+Prediction at 3.3: Before the factory, 4 places. After the factory, still 3 and easier. The factory breaks OCP because it's a function that would need modification, which is against OCP. However this is allowed as this is the system to prevent changing the code in the system. Instead, just changing one area instead of many
+
+Prediction at 4: DigitalProduct should be able to skip or change the rule as LSP states the child class must be able to replace the parent class, and in reality there wouldn't really be a need for a digital item to have any stock as it is just downloaded.
+
+Prediction at 5.1: "Please enter a valid number" will print first, then "Please enter a number greater than zero" for -5 and nothing is printed for 12.50. It is instead just returned as a value.
+
+Prediction at 5.2: 4 products will load, then products loaded and finally the load attempt string will print. When renamed, product file not found will print and load attempt finish will print

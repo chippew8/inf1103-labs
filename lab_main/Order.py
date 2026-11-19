@@ -1,20 +1,20 @@
 from OrderLine import OrderLine
 from Product import Product
+from DiscountStrategy import DiscountStrategy, NoDiscount
+
 class Order():
-    def __init__(self, order_id: str):
+    def __init__(self, order_id: str, discount: DiscountStrategy = NoDiscount()):
         self.__order_id = order_id
         self.__order_lines: list[OrderLine]= []
+        self.__discount: DiscountStrategy = discount
 
     def add_order_line(self, product: Product, quantity: int) -> None:
         order_line = OrderLine(product, quantity)
         self.__order_lines.append(order_line)
 
     def calculate_total(self) -> float:
-        total = 0
-        for order_line in self.__order_lines:
-            print(f"The cost of {order_line.get_product().get_name()} is {order_line.get_product().get_price()}")
-            total += order_line.calculate_subtotal()
-        return total
+        total = sum(line.calculate_subtotal() for line in self.__order_lines)
+        return self.__discount.apply(total)
 
     def get_order_id(self) -> str:
         return self.__order_id
@@ -28,3 +28,6 @@ class Order():
                 print(f"{order_line.get_product().get_name()} has been removed")
                 self.__order_lines.remove(order_line)
                 return
+
+    def set_discount(self, discount: DiscountStrategy):
+        self.__discount: DiscountStrategy = discount

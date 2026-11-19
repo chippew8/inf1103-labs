@@ -1,7 +1,8 @@
 import json
+import csv
 from pathlib import Path
 from Inventory import Inventory
-from Product import DigitalProduct, PhysicalProduct
+from Product import DigitalProduct, PhysicalProduct, ProductFactory
 from Supplier import Supplier
 from Order import Order
 from OrderLine import OrderLine
@@ -12,22 +13,13 @@ def display_all(inventory):
 def add_product(inventory):
     print("Add New Product")
     product_type = input("Select product type (Digital/Physical): ")
-    if product_type == "Physical":
-        id = input("Product ID: ")
-        name = input("Product Name: ")
-        price = input("Price: ")
-        quantity = input("Stock Quantity: ")
-        weight = input("Weight: ")
-        product = PhysicalProduct(id, name, price, quantity, new_supplier, weight)
-    elif product_type == "Digital":
-        id = input("Product ID: ")
-        name = input("Product Name: ")
-        price = input("Price: ")
-        quantity = input("Stock Quantity: ")
-        download_size = input("Download Size: ")
-        product = DigitalProduct(id, name, price, quantity, new_supplier, download_size)
-    else:
-        print("Unknown product type. Try Again.")
+    id = input("Product ID: ")
+    name = input("Product Name: ")
+    price = get_positive_float("Price: ")
+    quantity = get_positive_float("Stock Quantity: ")
+    print(price)
+    product = ProductFactory.create(product_type, id, name, price, quantity, new_supplier)
+    print(type(product))
     inventory.add_product(product)
     print("Product added successfully!")
     return inventory
@@ -111,7 +103,42 @@ def load_inventory(inventory):
         new_file.close()
         return inventory
 
-new_supplier = Supplier("S0001", "Supplier 1", "first.supplies@gmail.com")
+def load_products(path:str, inventory: Inventory, supplier: Supplier):
+    try:
+        file = open(path, newline="")
+    except FileNotFoundError:
+        print(f"Product file is not found: {path}")
+    else:
+        with file:
+            next(file, None)
+            next(file, None)
+            for row in file:
+                try:
+                    list = row.split(",")
+                    inventory.add_product(ProductFactory.create(list[0], list[1], list[2], list[3], list[4], supplier))
+
+                    next(file, None)
+                except ValueError:
+                    print(f"{list[2]} failed to load")
+                    next(file, None)
+                    continue
+        print(f"{len(inventory.get_product_list())} products loaded")
+    finally:
+        print("Load attempt finished")
+                
+
+def get_positive_float(prompt:str) -> float:
+    while True:
+        try: 
+            value = float(input(prompt))
+            if value <= 0 :
+                print("Please enter a number greater than a zero")
+                continue
+            return value
+        except ValueError:
+            print("Please enter a valid number, e.g. 12.50")
+
+
 
 
 
@@ -119,7 +146,10 @@ print("========================================")
 print("INVENTORY MANAGEMENT SYSTEM")
 print("========================================\n")
 inventory = Inventory()
-load_inventory(inventory)
+new_supplier = Supplier("S0001", "Supplier 1", "first.supplies@gmail.com")
+load_products("products.csv", inventory, new_supplier)
+# load_inventory(inventory)
+
 while True:
     print("\n-------MENU-------")
     print("1. Display All Products")

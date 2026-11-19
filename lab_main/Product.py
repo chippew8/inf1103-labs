@@ -40,7 +40,7 @@ class Product(ABC):
         pass
 
 class PhysicalProduct(Product, CanBeShipped.CanBeShipped):
-    def __init__(self, product_id: str, name: str, price: float, stock: int, supplier: Supplier, weight: float):
+    def __init__(self, product_id: str, name: str, price: float, stock: int, supplier: Supplier, weight: float = 0):
         super().__init__(product_id, name, price, stock, supplier)
         self.__weight = weight
 
@@ -58,7 +58,7 @@ class PhysicalProduct(Product, CanBeShipped.CanBeShipped):
         return f"It cost ${int(self.get_weight())*2} to ship {self.get_name()}"
 
 class DigitalProduct(Product):
-    def __init__(self, product_id: str, name: str, price: float, stock: int, supplier: Supplier, download_size: int):
+    def __init__(self, product_id: str, name: str, price: float, stock: int, supplier: Supplier, download_size: int = 0):
         super().__init__(product_id, name, price, stock, supplier)
         self.__download_size = download_size
 
@@ -73,3 +73,12 @@ class DigitalProduct(Product):
         return f"{self.get_name()} is digital"
 
 
+class ProductFactory:
+    @staticmethod
+    def create(product_type: str, product_id: str, name:str, price:float, stock_quantity:int, supplier: Supplier) -> Product:
+        if product_type == "physical":
+            return PhysicalProduct(product_id, name, price, stock_quantity,supplier)
+        elif product_type == "digital":
+            return DigitalProduct(product_id, name, price, stock_quantity, supplier)
+        else:
+            raise ValueError(f"Unknown product type: {product_type}")
