@@ -1,3 +1,51 @@
+commit 81d4f65b02e6f3b269a5e3c5d95b807f3e458dff
+Author: Ping Xuan <apingxuan@gmail.com>
+Date:   Sun Nov 8 17:54:44 2026 +0800
+
+    Added types to all input and output as well as updated UML diagram
+
+commit 4ff2b901c5054729674b93063beb099082b52b78
+Author: Ping Xuan <apingxuan@gmail.com>
+Date:   Sat Nov 7 18:07:02 2026 +0800
+
+    Created Order and OrderLine class
+
+commit 34d94f69ddaf649024c2db65a5eabb4f77ac5a0f
+Author: Ping Xuan <apingxuan@gmail.com>
+Date:   Sat Nov 7 17:12:08 2026 +0800
+
+    Create OrderLine class
+
+commit 00be1d48ec07e69a8080d19f86dff659f3e53d49
+Author: Ping Xuan <apingxuan@gmail.com>
+Date:   Sat Nov 7 17:04:20 2026 +0800
+
+    Added removing product method
+
+commit ed065a71e7f7e65cee1b727e602ee7ffe1052a5a
+Author: Ping Xuan <apingxuan@gmail.com>
+Date:   Sat Nov 7 16:15:32 2026 +0800
+
+    Added Supplier class
+
+commit 64bdd1dd5f29239acd716f7d4ed49f9786521c10
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 13:08:41 2026 +0800
+
+    git repository clean up
+
+commit c0a1694de10276a590d0aff6a2d0696ebdc60a67
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Fri Nov 6 13:06:51 2026 +0800
+
+    start of lab 8
+
+commit 28256376362c25034379bb7a428303f81ee150bf
+Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
+Date:   Tue Nov 3 15:46:33 2026 +0800
+
+    Lab 7 Final
+
 commit ef8a77cb9d8a003c1ba6550cd81bd053cd7ba5ff
 Author: Ping Xuan <2603059@sit.singaporetech.edu.sg>
 Date:   Tue Nov 3 15:07:11 2026 +0800
